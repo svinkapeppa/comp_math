@@ -17,7 +17,7 @@ def check_positiveness(matrix):
 
 
 def generate_matrix(dim=50):
-    matrix = 10 * np.random.rand(dim, dim) - 5
+    matrix = 20 * np.random.rand(dim, dim) - 10
     matrix = matrix @ matrix.T
     return matrix
 

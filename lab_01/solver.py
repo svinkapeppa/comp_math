@@ -1,6 +1,6 @@
 import argparse
 
-from lab_01.utils import *
+from utils import *
 
 
 def process_data(filename):

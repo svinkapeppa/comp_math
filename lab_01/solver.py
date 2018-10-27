@@ -52,7 +52,9 @@ def сonjugate_gradient_method(dim, eps, A, b):
 
     # Main cycle
     _ = matrix_cross_product(r, r)
+    iter_count = 0
     while True:
+        iter_count += 1
         Az = matrix_multiplication(A, z)
         alpha = _ / matrix_cross_product(z, Az)
         x_prev = x
@@ -63,7 +65,7 @@ def сonjugate_gradient_method(dim, eps, A, b):
         _ = __
         # Stopping criterion
         if dist(x, x_prev) < eps and dist(matrix_multiplication(A, x), b) < eps:
-            return x
+            return x, iter_count
         z = matrix_subtraction(matrix_scalar_multiplication(z, beta), r)
 
 
@@ -91,4 +93,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     solution = solve(args.file)
-    print(solution)
+    print(solution[1])
+    print(solution[0])
